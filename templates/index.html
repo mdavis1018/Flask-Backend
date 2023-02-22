@@ -132,7 +132,7 @@ button {
   color: hsl(190deg, 10%, 95%);
   
   box-shadow: 0 0px 0px hsla(190deg, 15%, 5%, .2);
-  transfrom: translateY(0);
+  transfm: translateY(0);
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   border-bottom-left-radius: 0px;
@@ -168,18 +168,35 @@ button {
   top: -1000px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: white;
   padding: 20px;
-  border: 1px solid black;
+  border: 1px solid rgb(255, 226, 251);
   z-index: 9999;
 }
 
 #my-popup.visible {
   top: 50%;
 }
+#close-popup {
+  display: inline-block;
+   padding: 24px 32px;
+   border: 0;
+   text-decoration: none;
+   border-radius: 15px;
+   background-color: rgba(255,255,255,0.1);
+   border: 1px solid rgba(255,255,255,0.1);
+   backdrop-filter: blur(30px);
+   color: rgba(255,255,255,0.8);
+   font-size: 14px;
+   letter-spacing: 2px;
+   cursor: pointer;
+   text-transform: uppercase;
+   position:relative;
+   left: 145px;
+   top: 50px;
+}
 #close-popup:hover{
 background-color: rgb(238, 130, 218);
-transition: 1.3s;
+transition: 0.7s;
 }
 .dropdown {
   width: 30rem;
@@ -217,6 +234,36 @@ transition: 1.3s;
   padding: 1rem;
   font-size: 1.4rem;
 }
+
+.container {
+  width: 30rem;
+  height: 20rem;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+  border-radius: 5px;
+  position: relative;
+  z-index: 1;
+  background: inherit;
+  overflow: hidden;
+}
+
+.container:before {
+  content: "";
+  position: absolute;
+  background: inherit;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+  filter: blur(10px);
+  margin: -20px;
+}
+h2{
+  position: relative;
+  left: 160px;
+  font-style: oblique;
+}
     </style>
 </head>
   <body>
@@ -231,14 +278,16 @@ transition: 1.3s;
     
     <div>
       <div class="buttons-container">
-        <button class="button-arounder" id="open-popup">Pop Up  </button>                                              
-        <div id="my-popup">
+        <button class="button-arounder" id="open-popup">Pop Up  </button>       
+        
+        
+        <div id="my-popup" class="container">
           <h2>Pop-up Content</h2>
-          <p>This is some content for the pop-up.</p>
+          <p>This is a popup.</p>
           <button id="close-popup">Close Pop-up</button>
-        </div>                                                                                                                 
-      </div>
-    </div>  
+        </div>   
+      </div>                                                                                                               
+      </div> 
     <div>
     <div class="dropdown">
       <div class="dropdown-select">
